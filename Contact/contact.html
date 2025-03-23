@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+ <head>
+  <title>
+   Filipino Recipe - Contact
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+ </head>
+ <body style="background-color: #111827; color: white;">
+    <header>
+        <div class="container">
+            <h1 style="font-size: 30px; font-weight: bold;">Filipino Recipes</h1>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../About/about.html">About</a></li>
+                    <li><a href="../Services/index.html">Services</a></li>
+                    <li class="active"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main style="display: block; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px;">
+    <h2 style="text-align: center; font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem;">
+    CONTACT
+   </h2>
+   <div style="border-bottom: 2px solid #4B5563; width: 4rem; margin: 0 auto 2rem;">
+   </div>
+   <form style="display: flex; flex-direction: column; gap: 1rem;">
+    <div style="display: block;
+                @media (min-width: 768px) { grid-template-columns: repeat(3, 1fr); }">
+        <input type="text" placeholder="Name" required 
+               style="padding: 0.5rem; background-color: #1F2937; border: 1px solid #374151; border-radius: 0.25rem; padding-right: 212px;">
+        <input type="text" placeholder="Phone" required 
+               style="padding: 0.5rem; background-color: #1F2937; border: 1px solid #374151; border-radius: 0.25rem; margin-left: 20px; padding-right: 212px;">
+        <input type="email" placeholder="Email address" required 
+               style="padding: 0.5rem; background-color: #1F2937; border: 1px solid #374151; border-radius: 0.25rem; margin-left: 20px; padding-right: 212px;">
+    </div>
+    <textarea placeholder="Message" 
+              style="width: 100%; padding: 0.5rem; background-color: #1F2937; border: 1px solid #374151; 
+                     border-radius: 0.25rem; height: 8rem;"></textarea>
+    <div class="text-center">
+        <button type="submit" style="background-color: #D97706; color: black; padding: 0.5rem 1rem; margin-bottom: 20px; border: none; cursor: pointer;">
+            CONTACT US
+        </button>
+    </div>
+   </form>
+   <div style="margin-top: 2rem; align-items: flex-start;
+                @media (min-width: 768px) { flex-direction: row; }">
+    <div style="margin-bottom: 1rem; @media (min-width: 768px) { margin-bottom: 0; } float: left;">
+     <p style="padding: 10px; font-size: 30px; color: peachpuff; margin-bottom: 15px;">
+      Cebu, Philippines
+     </p>
+     <p style="padding: 10px; font-size: 20px;">
+      <i class="fas fa-phone-alt" style="padding: 10px; color: peachpuff;">
+      </i>
+      +63-9215639143
+     </p>
+     <p style="padding: 10px; font-size: 20px;">
+      <i class="fas fa-envelope" style="padding: 10px; color: peachpuff;">
+      </i>
+      ILY143@gmail.com
+     </p>
+     <p style="padding: 10px; font-size: 20px;">
+      <i class="fas fa-clock" style="padding: 10px; color: peachpuff;">
+      </i>
+      Mon-Fri : 08:00-19:00
+     </p>
+    </div>
+    <div style="width: 100%; @media (min-width: 768px) { width: 50%; } margin-left: 50%;">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125585.2248968965!2d123.76389309513053!3d10.378753949755264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sCebu%20City%2C%206000%20Cebu!5e0!3m2!1sen!2sph!4v1742533410448!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   </div>
+  </main>
+  <footer style="background-color: #23272a; padding: 30px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 90%; margin: 0 auto; color: peachpuff;">
+        <p style="margin: 0;">© 2025 Filipino Recipe. All rights reserved.</p>
+        <div>
+            <a href="#" id="privacy-policy-link" style="text-decoration: none; color: white; margin-right: 15px;">Privacy Policy</a>
+            <a href="#" id="terms-of-service-link" style="text-decoration: none; color: white;">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<div id="privacyPolicyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" style="color: black; cursor: pointer;">&times;</span>
+        <h2 style="color: black;">Privacy Policy</h2>
+        <p style="color: black;">
+            At Filipino Recipe, we value your privacy and are committed to safeguarding your personal information. This Privacy Policy outlines the types of data we collect, how we use it, and the steps we take to ensure it remains protected. By using our services, you agree to the terms described in this policy.
+        </p>
+        <p style="color: black;">
+            <strong>1. Information We Collect</strong><br>
+            We may collect various types of information, including but not limited to:
+            <ul>
+                <li>Personal identification details such as name, email address, and phone number provided when you create an account, subscribe to newsletters, or contact us.</li>
+                <li>Usage data and analytics, including your IP address, browser type, and operating system, collected automatically when you browse our website.</li>
+                <li>Cookies and tracking technologies to enhance user experience and monitor website performance.</li>
+            </ul>
+        </p>
+        <p style="color: black;">
+            <strong>2. How We Use Your Information</strong><br>
+            The information we collect is used for the following purposes:
+            <ul>
+                <li>To provide, maintain, and improve our services and content.</li>
+                <li>To communicate with you regarding updates, promotions, and customer support.</li>
+                <li>To analyze website traffic and user behavior for optimizing user experience.</li>
+                <li>To ensure the security of our systems and prevent fraudulent activities.</li>
+            </ul>
+        </p>
+        <p style="color: black;">
+            <strong>3. Sharing of Information</strong><br>
+            We do not sell, rent, or trade your personal information. However, we may share your data with:
+            <ul>
+                <li>Trusted third-party service providers who assist in website operations and maintenance.</li>
+                <li>Legal authorities, if required to comply with applicable laws and regulations or in response to a valid legal request.</li>
+            </ul>
+        </p>
+        <p style="color: black;">
+            <strong>4. Cookies and Tracking</strong><br>
+            Cookies are small files stored on your device to enhance website functionality and provide tailored content. You can choose to disable cookies through your browser settings; however, this may affect the usability of our website.
+        </p>
+        <p style="color: black;">
+            <strong>5. Data Security</strong><br>
+            We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. Despite our efforts, no system can guarantee complete security.
+        </p>
+        <p style="color: black;">
+            <strong>6. Third-Party Links</strong><br>
+            Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites and encourage you to review their privacy policies before engaging with them.
+        </p>
+        <p style="color: black;">
+            <strong>7. Your Rights</strong><br>
+            You have the following rights regarding your personal data:
+            <ul>
+                <li>The right to access, update, or delete your data.</li>
+                <li>The right to withdraw consent for processing your data at any time.</li>
+                <li>The right to file a complaint with relevant data protection authorities if you believe your privacy rights have been violated.</li>
+            </ul>
+        </p>
+        <p style="color: black;">
+            <strong>8. Changes to the Privacy Policy</strong><br>
+            We reserve the right to update this Privacy Policy to reflect changes in our practices or regulatory requirements. All updates will be communicated through our website, and we encourage you to review this page periodically.
+        </p>
+        <p style="color: black;">
+            <strong>9. Contact Us</strong><br>
+            If you have any questions or concerns regarding this Privacy Policy or the handling of your personal data, please contact us at:
+            <ul>
+                <li>Email: privacy@filipinorecipe.com</li>
+                <li>Phone: +63-921-443-1435</li>
+                <li>Address: Cebu City, Philippines</li>
+            </ul>
+        </p>
+    </div>
+</div>    
+
+<div id="termsOfServiceModal" class="modal">
+    <div class="modal-content">
+        <span class="close" style="color: black; cursor: pointer;">&times;</span>
+        <h2 style="color: black;">Terms of Service</h2>
+        <p style="color: black;">
+            Welcome to Filipino Recipe! By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully as they govern your use of our services.
+        </p>
+        <p style="color: black;">
+            <strong>1. Acceptance of Terms</strong><br>
+            By accessing this website, you accept these Terms of Service and our Privacy Policy. If you do not agree to these terms, please discontinue use of our website immediately.
+        </p>
+        <p style="color: black;">
+            <strong>2. Use of Website</strong><br>
+            You agree to use our website only for lawful purposes. You are prohibited from:
+            <ul>
+                <li>Engaging in fraudulent activities or providing false information.</li>
+                <li>Attempting to hack, damage, or disrupt the website or its services.</li>
+                <li>Uploading or sharing malicious files or viruses.</li>
+                <li>Violating any applicable local, state, or national laws.</li>
+            </ul>
+        </p>
+        <p style="color: black;">
+            <strong>3. Intellectual Property</strong><br>
+            All content on this website, including text, images, logos, and recipes, is the exclusive property of Filipino Recipe unless otherwise specified. You may not reproduce, distribute, or exploit any content for commercial purposes without our prior written consent.
+        </p>
+        <p style="color: black;">
+            <strong>4. User Content</strong><br>
+            By submitting content (e.g., comments or suggestions), you grant us the right to use, reproduce, and modify your content for purposes related to our services. You are responsible for ensuring that your submissions do not violate third-party rights or applicable laws.
+        </p>
+        <p style="color: black;">
+            <strong>5. Third-Party Links</strong><br>
+            Our website may contain links to third-party websites for your convenience. We are not responsible for the content, privacy policies, or practices of these external sites. Access these links at your own risk.
+        </p>
+        <p style="color: black;">
+            <strong>6. Limitation of Liability</strong><br>
+            We strive to ensure the accuracy of our content but do not guarantee that it is error-free or reliable. Filipino Recipe is not liable for any losses, damages, or inconvenience caused by the use of our website or reliance on its content.
+        </p>
+        <p style="color: black;">
+            <strong>7. Termination</strong><br>
+            We reserve the right to suspend or terminate your access to our website if you violate these terms or engage in prohibited activities.
+        </p>
+        <p style="color: black;">
+            <strong>8. Changes to Terms</strong><br>
+            Filipino Recipe reserves the right to update or modify these Terms of Service at any time. All changes will be effective immediately upon posting. Your continued use of the website constitutes acceptance of the updated terms.
+        </p>
+        <p style="color: black;">
+            <strong>9. Contact Us</strong><br>
+            If you have any questions regarding these Terms of Service, please contact us at:
+            <ul>
+                <li>Email: support@filipinorecipe.com</li>
+                <li>Phone: +63-921-443-1435</li>
+                <li>Address: Cebu City, Philippines</li>
+            </ul>
+        </p>
+    </div>
+</div>
+    <script src="script.js"></script>
+ </body>
+</html>

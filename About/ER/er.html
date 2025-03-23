@@ -1,0 +1,180 @@
+<html>
+ <head>
+  <title>
+   Filipino Recipe
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .modal-content {
+        position: relative;
+        padding: 20px;
+    }
+
+    .modal h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: #333;
+        font-weight: 700;
+    }
+
+    .modal ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .modal ul li {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #555;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .modal ul li::before {
+        content: "🍽️";
+        position: absolute;
+        left: -30px;
+    }
+
+    .action-btn {
+        display: inline-block;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .action-btn:hover {
+        background-color: #c0392b;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .modal.show,
+    .modal-overlay.show {
+        display: block;
+        opacity: 1;
+    }
+
+    .modal.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+  </style>
+ </head>
+ <body>
+    <header>
+        <div class="container">
+            <h1 style="font-size: 30px; font-weight: bold;">Filipino Recipes</h1>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../About/about.html">About</a></li>
+                    <li><a href="../../Services/index.html">Services</a></li>
+                    <li><a href="../../Contact/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="relative">
+        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+            <div style="background-color: rgba(25, 29, 29, 0.75); padding: 65px; border-radius: 8px;">
+                <h1 style="font-size: 2.25rem; font-weight: bold; margin-bottom: 16px; color: aliceblue;">
+                    Exclusive Recipes
+                </h1>
+                <p style="color: aliceblue; margin-bottom: 20px;">
+                    Taste the Difference
+                </p>
+                <div style="display: flex;">
+                    <input id="emailInput" style="padding: 10px; width: 100%; border: none;" placeholder="Email Address" type="email" required/>
+                    <button onclick="validateEmail()" style="background-color: red; color: white; padding: 10px; border: none;">
+                        SUBSCRIBE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2>Exclusive Filipino Recipes</h2>
+            <ul>
+                <li><a href="Exclusive Recipes/SS.html" style="color: rebeccapurple; text-decoration: underline;"><strong>Salmon Sinigang</strong></a> - A refined take on the classic sour soup, using fresh salmon fillets, delicate tamarind broth, and a touch of lemongrass.</li>
+                <li><a href="Exclusive Recipes/WBA.html" style="color: rebeccapurple; text-decoration: underline;"><strong>Wagyu Beef Adobo</strong></a> - Premium Wagyu beef braised in a rich, silky adobo sauce with a perfect balance of soy, vinegar, and garlic.</li>
+                <li><a href="Exclusive Recipes/TK.html" style="color: rebeccapurple; text-decoration: underline;"><strong>Truffle Kare-Kare</strong></a> - A luxurious peanut stew infused with black truffle essence, served with tender oxtail and heirloom vegetables.</li>
+                <li><a href="Exclusive Recipes/PA.html" style="color: rebeccapurple; text-decoration: underline;"><strong>Prawns Alavar</strong></a> - Succulent prawns cooked in a rich coconut and crab roe sauce, inspired by the flavors of Zamboanga.</li>
+                <li><a href="Exclusive Recipes/UPC.html" style="color: rebeccapurple; text-decoration: underline;"><strong>Ube Panna Cotta</strong></a> - A velvety Italian panna cotta infused with rich Filipino ube (purple yam), topped with macapuno and edible gold flakes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("emailInput").value;
+            if (email.trim() === "") {
+                alert("Please enter a valid email address.");
+            } else {
+                showModal();
+            }
+        }
+
+        function showModal() {
+            document.getElementById("recipeModal").classList.add("show");
+            document.getElementById("modalOverlay").classList.add("show");
+        }
+
+        function closeModal() {
+            document.getElementById("recipeModal").classList.remove("show");
+            document.getElementById("modalOverlay").classList.remove("show");
+        }
+    </script>
+ </body>
+</html>

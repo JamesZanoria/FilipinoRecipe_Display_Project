@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Recipes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-steps {
+            display: none;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 10px;
+        }
+        .nutrition-facts {
+            margin-top: 10px;
+            font-size: 0.875rem;
+            color: #444;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .star {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: rgba(41, 2, 2, 0.4);
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+        }
+
+        .star:hover,
+        .star.hovered {
+            color: #ffcc00;
+            transform: scale(1.2);
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+        }
+
+        .star.active {
+            color: #ff9f43;
+            text-shadow: 0 0 12px rgba(255, 159, 67, 0.9);
+        }
+    </style>
+</head>
+<body style="background-color: #FEE2E2; color: #1F2937; margin: 0;">
+    <header style="background-color: #111827; color: white; padding: 1rem; text-align: center;">
+        <h1 style="font-size: 1.875rem; color: peachpuff; margin: 0;">Popular Filipino Dishes</h1>
+    </header>
+
+    <main style="width: 90%; max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <div style="margin-bottom: 1.5rem;">
+            <input type="text" id="searchInput" placeholder="Search for recipes..." 
+                style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;" onkeyup="searchRecipes()">
+        </div>    
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div class="recipe-card" onclick="showSteps('adoboSteps')" data-name="Adobo">
+                <img src="adobo.jpeg" alt="Adobo" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Adobo</h3>
+                <p>A savory dish made with chicken or pork marinated in vinegar, soy sauce, and garlic.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 280 | <strong>Protein:</strong> 25g | <strong>Carbs:</strong> 5g | <strong>Fat:</strong> 18g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>
+                <div id="adoboSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Marinate chicken or pork in vinegar, soy sauce, garlic, pepper, and bay leaves for at least 30 minutes.</li>
+                        <li>Step 2: Heat oil in a pan and sauté garlic and onions until fragrant.</li>
+                        <li>Step 3: Add the marinated meat and cook until lightly browned.</li>
+                        <li>Step 4: Pour in the marinade and add water. Bring to a boil.</li>
+                        <li>Step 5: Simmer on low heat until the meat is tender and the sauce reduces. Adjust seasoning to taste.</li>
+                        <li>Step 6: Serve hot with steamed rice.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('sinigangSteps')" data-name="Sinigang">
+                <img src="sinigang.jpeg" alt="Sinigang" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Sinigang</h3>
+                <p>A sour soup made with tamarind, tomatoes, and various vegetables, often with pork or shrimp.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 220 | <strong>Protein:</strong> 22g | <strong>Carbs:</strong> 10g | <strong>Fat:</strong> 9g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>
+                <div id="sinigangSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: In a pot, bring water to a boil and dissolve tamarind base or extract.</li>
+                        <li>Step 2: Add pork ribs or shrimp and cook until tender.</li>
+                        <li>Step 3: Add tomatoes, onions, and radish slices. Let them cook for 5 minutes.</li>
+                        <li>Step 4: Add okra, string beans, and kangkong (water spinach). Simmer for another 5-10 minutes.</li>
+                        <li>Step 5: Adjust the sourness and seasoning as needed. Serve hot.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('karekareSteps')" data-name="Kare-Kare">
+                <img src="kare-kare.jpeg" alt="Kare-Kare" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Kare-Kare</h3>
+                <p>A savory peanut-based stew made with oxtail and vegetables.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 350 | <strong>Protein:</strong> 18g | <strong>Carbs:</strong> 50g | <strong>Fat:</strong> 10g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>
+                <div id="karekareSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Boil oxtail, tripe, or beef in water until tender. Set the broth aside.</li>
+                        <li>Step 2: Sauté garlic and onions in a pot. Add the boiled meat.</li>
+                        <li>Step 3: Stir in peanut butter and annatto powder for color. Add the broth to create a thick sauce.</li>
+                        <li>Step 4: Add eggplant, banana blossoms, and string beans. Cook until tender.</li>
+                        <li>Step 5: Serve hot with shrimp paste (bagoong) on the side.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('lechonSteps')" data-name="Lechon">
+                <img src="lechon.jpeg" alt="Lechon" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Lechon</h3>
+                <p>Roasted whole pig, known for its crispy skin and tender meat.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 270 kcal | <strong>Protein:</strong> 24g | <strong>Carbs:</strong> 0g | <strong>Fat:</strong> 20g</p>
+                </div>        
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>        
+                <div id="lechonSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Clean the pig thoroughly. Rub salt and pepper inside and out.</li>
+                        <li>Step 2: Stuff the pig with lemongrass, garlic, onions, and bay leaves.</li>
+                        <li>Step 3: Sew the pig's belly shut and marinate overnight.</li>
+                        <li>Step 4: Roast over charcoal while basting with oil to achieve crispy skin.</li>
+                        <li>Step 5: Once golden brown, carve and serve with liver sauce or lechon gravy.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('haloHaloSteps')" data-name="Halo-Halo">
+                <img src="halo-halo.jpeg" alt="Halo-Halo" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Halo-Halo</h3>
+                <p>A popular dessert made with crushed ice, sweet beans, fruits, and leche flan.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 450 kcal | <strong>Protein:</strong> 8g | <strong>Carbs:</strong> 95g | <strong>Fat:</strong> 10g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>                
+                <div id="haloHaloSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Prepare ingredients like sweetened beans, nata de coco, jackfruit, and ube halaya.</li>
+                        <li>Step 2: In a glass, layer the ingredients and add crushed ice.</li>
+                        <li>Step 3: Pour evaporated milk over the ice.</li>
+                        <li>Step 4: Top with leche flan, purple yam, and a scoop of ice cream. Serve immediately.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('pancitSteps')" data-name="Pancit">
+                <img src="pancit.jpeg" alt="Pancit" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Pancit</h3>
+                <p>Stir-fried noodles with vegetables, meat, and seafood, often served during birthdays.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 300 kcal | <strong>Protein:</strong> 12g | <strong>Carbs:</strong> 45g | <strong>Fat:</strong> 8g</p>
+                </div> 
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>               
+                <div id="pancitSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Soak dried noodles in water until soft. Drain.</li>
+                        <li>Step 2: Sauté garlic and onions in oil. Add chicken, pork, or shrimp and cook until done.</li>
+                        <li>Step 3: Add vegetables like carrots, cabbage, and celery. Stir-fry for 2-3 minutes.</li>
+                        <li>Step 4: Add noodles and seasoning (soy sauce and fish sauce). Mix well.</li>
+                        <li>Step 5: Serve with lemon or calamansi slices on the side.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('bibingkaSteps')" data-name="Bibingka">
+                <img src="bibingka.jpeg" alt="Bibingka" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Bibingka</h3>
+                <p>A rice cake made with coconut milk, often topped with salted egg and cheese.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 320 kcal | <strong>Protein:</strong> 6g | <strong>Carbs:</strong> 55g | <strong>Fat:</strong> 9g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>                
+                <div id="bibingkaSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Combine rice flour, sugar, baking powder, and coconut milk to form a batter.</li>
+                        <li>Step 2: Line molds with banana leaves. Pour the batter into the molds.</li>
+                        <li>Step 3: Top with slices of salted egg and grated cheese.</li>
+                        <li>Step 4: Bake in a preheated oven until golden brown.</li>
+                        <li>Step 5: Serve warm with butter and grated coconut on top.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="showSteps('lumpiaSteps')" data-name="Lumpia">
+                <img src="lumpia.jpeg" alt="Lumpia" style="border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; width: 100%;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;">Lumpia</h3>
+                <p>Filipino spring rolls filled with vegetables and meat, often served with a dipping sauce.</p>
+                <div class="nutrition-facts">
+                    <p><strong>Calories:</strong> 120 kcal | <strong>Protein:</strong> 5g | <strong>Carbs:</strong> 10g | <strong>Fat:</strong> 7g</p>
+                </div>
+                <div class="rating" data-rating="0">
+                    <span class="star" onclick="rateRecipe(this, 1)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 2)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 3)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 4)">&#9733;</span>
+                    <span class="star" onclick="rateRecipe(this, 5)">&#9733;</span>
+                </div>                
+                <div id="lumpiaSteps" class="recipe-steps" style="display:none;">
+                    <ul>
+                        <li>Step 1: Sauté ground pork, carrots, cabbage, and onions in a pan.</li>
+                        <li>Step 2: Let the filling cool, then wrap it in lumpia wrappers tightly.</li>
+                        <li>Step 3: Heat oil in a frying pan and deep fry the rolls until golden brown.</li>
+                        <li>Step 4: Drain excess oil and serve with sweet chili sauce or vinegar dip.</li>
+                    </ul>
+                </div>
+            </div>   
+            
+
+        </div>
+    </main>
+
+    <button onclick="goBack()" class="back-button">
+        Back to Home Page
+    </button> 
+    
+    <footer style="background-color: #1a202c; color: #ffffff; padding: 1rem; margin-top: 2rem;">
+        <div style="max-width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+            <p>© 2025 Filipino Recipes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSteps(stepsId) {
+            const steps = document.getElementById(stepsId);
+            steps.style.display = steps.style.display === 'none' || steps.style.display === '' ? 'block' : 'none';
+        }
+
+        function rateRecipe(element, rating) {
+            const parent = element.parentElement;
+            const stars = parent.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+            parent.setAttribute('data-rating', rating);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function searchRecipes() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const recipes = document.querySelectorAll(".recipe-card");
+
+        recipes.forEach(recipe => {
+            const recipeName = recipe.getAttribute("data-name").toLowerCase();
+            if (recipeName.includes(input)) {
+                recipe.style.display = "block";
+            } else {
+                recipe.style.display = "none";
+            }
+        });
+    }
+    </script>
+</body>
+</html>
